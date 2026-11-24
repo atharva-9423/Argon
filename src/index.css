@@ -1,0 +1,611 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Outfit", "Plus Jakarta Sans", -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-argon-paper: #F6F4F1;
+  --color-argon-stone: #E4DED2;
+  --color-argon-coral: #F95C4B;
+  --color-argon-black: #000000;
+}
+
+:root {
+  --md-primary: #3B66F5;
+  --md-on-primary: #FFFFFF;
+  --md-primary-container: #D8E2FF;
+  --md-on-primary-container: #0D1E57;
+  --md-secondary: #535E82;
+  --md-secondary-container: #DCE3F9;
+  --md-on-secondary-container: #141C36;
+  --md-tertiary: #A85719;
+  --md-tertiary-container: #FFE0C7;
+  --md-on-tertiary-container: #3D1A00;
+  --md-surface: #ECEFFA;
+  --md-surface-card: #FBFCFF;
+  --md-surface-container-low: #F4F6FC;
+  --md-surface-container: #E4E8F5;
+  --md-surface-container-high: #DAE0F2;
+  --md-on-surface: #181B24;
+  --md-on-surface-variant: #4B5060;
+  --md-outline-variant: #C2C8D9;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #000000;
+    color: #000000;
+    scroll-behavior: smooth;
+    transition: background-color 280ms ease;
+  }
+
+  body {
+    margin: 0;
+    background-color: #000000;
+    background-image: none;
+    color: #000000;
+    overflow-x: hidden;
+    transition: background-color 280ms ease, color 220ms ease;
+  }
+}
+
+/* ==========================================================================
+   DEFAULT THEME — PAPER / STONE / CORAL / BLACK EDITORIAL PALETTE
+   Paper: #F6F4F1 | Stone: #E4DED2 | Coral: #F95C4B | Black: #000000
+   ========================================================================== */
+
+.argon-card {
+  background: #E4DED2;
+  border: 1.25px solid #000000;
+  border-radius: 24px;
+  box-shadow: none;
+  color: #000000;
+  transition:
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    border-radius 240ms ease,
+    background-color 200ms ease;
+}
+
+.argon-card-interactive:hover {
+  border-color: #000000;
+}
+
+/* Strict 4-color editorial card roles */
+.argon-card-stone {
+  background: #E4DED2 !important;
+  border: 1.25px solid #000000;
+  border-radius: 22px;
+  color: #000000;
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms ease;
+}
+
+.argon-card-coral {
+  background: #F95C4B !important;
+  border: 1.25px solid #000000;
+  border-radius: 22px;
+  color: #000000;
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms ease;
+}
+
+.argon-card-black {
+  background: #000000 !important;
+  border: 2px solid #F95C4B;
+  border-radius: 22px;
+  color: #F6F4F1;
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms ease;
+}
+
+.argon-card-stone:hover,
+.argon-card-coral:hover {
+  border-color: #000000;
+}
+
+.argon-card-black:hover {
+  border-color: #F95C4B;
+}
+
+.argon-hero-card {
+  background: #E4DED2;
+  border: 1.25px solid #000000;
+  border-radius: 24px;
+  box-shadow: none;
+  color: #000000;
+  transition: border-radius 260ms ease, background-color 240ms ease;
+}
+
+.argon-glass-pill {
+  background: #F6F4F1;
+  color: #000000;
+  border: 1.25px solid #000000;
+  border-radius: 12px;
+  box-shadow: none;
+  transition: background-color 150ms ease, transform 150ms ease, color 150ms ease;
+}
+
+.argon-glass-pill:hover {
+  background: #E4DED2;
+}
+
+.argon-clay-well {
+  background: #F6F4F1;
+  border: 1.25px solid #000000;
+  border-radius: 16px;
+  color: #000000;
+  box-shadow: none;
+}
+
+.argon-nav-active {
+  background: #F95C4B;
+  color: #F6F4F1;
+  border: none;
+  box-shadow: none;
+}
+
+/* Primary Coral CTA Button (#F95C4B) */
+.argon-btn-primary {
+  background: #F95C4B;
+  color: #F6F4F1;
+  border: 1.25px solid #000000;
+  border-radius: 12px;
+  box-shadow: none;
+  transition: background-color 160ms ease, transform 160ms cubic-bezier(0.16, 1, 0.3, 1), border-radius 220ms ease;
+}
+
+.argon-btn-primary:hover {
+  background: #E64C3B;
+}
+
+.argon-btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* Pure Black CTA Button (#000000) */
+.argon-btn-dark {
+  background: #000000;
+  color: #F6F4F1;
+  border: 1.25px solid #000000;
+  border-radius: 12px;
+  box-shadow: none;
+  transition: background-color 160ms ease, transform 160ms ease, border-radius 220ms ease;
+}
+
+.argon-btn-dark:hover {
+  background: #1F1E1C;
+}
+
+/* Strictly harmonize all secondary views to Paper (#F6F4F1), Stone (#E4DED2), Coral (#F95C4B), Black (#000000) */
+html:not([data-theme="google-material"]) .bg-\[\#FFFCF8\],
+html:not([data-theme="google-material"]) .bg-\[\#F7F1E7\],
+html:not([data-theme="google-material"]) .bg-\[\#F8F3EB\],
+html:not([data-theme="google-material"]) .bg-\[\#F6EFE5\],
+html:not([data-theme="google-material"]) .bg-\[\#F6F0E6\],
+html:not([data-theme="google-material"]) .bg-\[\#F5F0E8\],
+html:not([data-theme="google-material"]) .bg-\[\#F7F2EA\],
+html:not([data-theme="google-material"]) .bg-\[\#FAF5EC\],
+html:not([data-theme="google-material"]) .bg-\[\#F8F7F4\] {
+  background-color: #F6F4F1 !important;
+}
+
+html:not([data-theme="google-material"]) .bg-\[\#F2EBE0\],
+html:not([data-theme="google-material"]) .bg-\[\#EFE8DD\],
+html:not([data-theme="google-material"]) .bg-\[\#F3ECE1\],
+html:not([data-theme="google-material"]) .bg-\[\#F4EDE2\],
+html:not([data-theme="google-material"]) .bg-\[\#EFE6DA\],
+html:not([data-theme="google-material"]) .bg-\[\#E8DED2\] {
+  background-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+html:not([data-theme="google-material"]) .bg-\[\#FDF4EA\],
+html:not([data-theme="google-material"]) .bg-\[\#FDF0E2\],
+html:not([data-theme="google-material"]) .bg-\[\#FDF1E4\],
+html:not([data-theme="google-material"]) .bg-\[\#FBE9D7\],
+html:not([data-theme="google-material"]) .bg-\[\#FDE8D3\] {
+  background-color: #F6F4F1 !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+html:not([data-theme="google-material"]) .bg-\[\#FDF0CC\] {
+  background-color: #000000 !important;
+  color: #F6F4F1 !important;
+}
+
+html:not([data-theme="google-material"]) .bg-\[\#F5FBF9\],
+html:not([data-theme="google-material"]) .bg-\[\#F4FBF9\],
+html:not([data-theme="google-material"]) .bg-\[\#F6FBF9\],
+html:not([data-theme="google-material"]) .bg-\[\#E3F5F2\],
+html:not([data-theme="google-material"]) .bg-\[\#DDF4F0\] {
+  background-color: #000000 !important;
+  color: #F6F4F1 !important;
+  border-color: #F95C4B !important;
+}
+
+/* Guarantee high contrast for every icon & text inside Black completed/status surfaces */
+html:not([data-theme="google-material"]) :is(.bg-\[\#F5FBF9\], .bg-\[\#F4FBF9\], .bg-\[\#F6FBF9\], .bg-\[\#E3F5F2\], .bg-\[\#DDF4F0\]) :is(.text-\[\#191919\], .text-\[\#1E6C66\], .text-\[\#22766F\], .text-\[\#3D3833\], .text-\[\#5F5851\]) {
+  color: #F6F4F1 !important;
+}
+
+html:not([data-theme="google-material"]) :is(.bg-\[\#F5FBF9\], .bg-\[\#F4FBF9\], .bg-\[\#F6FBF9\], .bg-\[\#E3F5F2\], .bg-\[\#DDF4F0\]) :is(.text-\[\#77716B\], .text-\[\#8C847C\]) {
+  color: #E4DED2 !important;
+}
+
+html:not([data-theme="google-material"]) :is(.bg-\[\#F5FBF9\], .bg-\[\#F4FBF9\], .bg-\[\#F6FBF9\], .bg-\[\#E3F5F2\], .bg-\[\#DDF4F0\]) :is(.text-\[\#48B8AE\], .text-\[\#2E9990\], .text-\[\#28867E\], .text-\[\#2C8E86\]) {
+  color: #F95C4B !important;
+}
+
+html:not([data-theme="google-material"]) .bg-\[\#E3F5F2\].text-\[\#1E6C66\],
+html:not([data-theme="google-material"]) .bg-\[\#E3F5F2\].text-\[\#22766F\] {
+  color: #F6F4F1 !important;
+}
+
+/* Nested tiles/pills inside Black completed lesson rows stay clearly separated */
+html:not([data-theme="google-material"]) .bg-\[\#F6FBF9\] .bg-\[\#DDF4F0\] {
+  background-color: #F95C4B !important;
+  color: #F6F4F1 !important;
+  border-color: #F95C4B !important;
+}
+
+html:not([data-theme="google-material"]) .bg-\[\#F6FBF9\] .bg-\[\#E3F5F2\] {
+  background-color: #E4DED2 !important;
+  color: #000000 !important;
+  border-color: #E4DED2 !important;
+}
+
+html:not([data-theme="google-material"]) .bg-\[\#ECE3FC\],
+html:not([data-theme="google-material"]) .bg-\[\#EFE6FD\] {
+  background-color: #F6F4F1 !important;
+  color: #000000 !important;
+  border: 1px solid #000000;
+}
+
+html:not([data-theme="google-material"]) .border-\[\#E8DED2\],
+html:not([data-theme="google-material"]) .border-\[\#EAE0D2\],
+html:not([data-theme="google-material"]) .border-\[\#E6DACB\],
+html:not([data-theme="google-material"]) .border-\[\#E4D8C9\],
+html:not([data-theme="google-material"]) .border-\[\#E7DDD0\],
+html:not([data-theme="google-material"]) .border-\[\#F3D5B5\],
+html:not([data-theme="google-material"]) .border-\[\#F3D8BC\],
+html:not([data-theme="google-material"]) .border-\[\#F4C495\],
+html:not([data-theme="google-material"]) .border-\[\#CBE9E4\],
+html:not([data-theme="google-material"]) .border-\[\#C8EAE5\] {
+  border-color: #000000 !important;
+}
+
+html:not([data-theme="google-material"]) .border-\[\#EFE6DA\],
+html:not([data-theme="google-material"]) .divide-\[\#F0E7DB\] > :not(:last-child) {
+  border-color: rgba(0, 0, 0, 0.16) !important;
+}
+
+html:not([data-theme="google-material"]) .text-\[\#191919\] {
+  color: #000000 !important;
+}
+
+html:not([data-theme="google-material"]) .text-\[\#F97316\],
+html:not([data-theme="google-material"]) .text-\[\#EA6A12\],
+html:not([data-theme="google-material"]) .text-\[\#EA580C\],
+html:not([data-theme="google-material"]) .text-\[\#D95D0E\],
+html:not([data-theme="google-material"]) .text-\[\#C25E12\],
+html:not([data-theme="google-material"]) .text-\[\#28867E\],
+html:not([data-theme="google-material"]) .text-\[\#2C8E86\],
+html:not([data-theme="google-material"]) .text-\[\#48B8AE\],
+html:not([data-theme="google-material"]) .text-\[\#2E9990\],
+html:not([data-theme="google-material"]) .text-\[\#F59E0B\],
+html:not([data-theme="google-material"]) .text-\[\#7C4FD3\],
+html:not([data-theme="google-material"]) .text-\[\#7A4ED4\],
+html:not([data-theme="google-material"]) .text-\[\#9B72E7\] {
+  color: #F95C4B !important;
+}
+
+html:not([data-theme="google-material"]) .text-\[\#C8BCB0\],
+html:not([data-theme="google-material"]) .text-\[\#C6BAAF\] {
+  color: #57534C !important;
+}
+
+html:not([data-theme="google-material"]) .bg-\[\#F97316\],
+html:not([data-theme="google-material"]) .bg-\[\#2C8E86\],
+html:not([data-theme="google-material"]) .bg-\[\#28867E\] {
+  background-color: #F95C4B !important;
+}
+
+html:not([data-theme="google-material"]) .hover\:bg-\[\#F5EEE3\]:hover,
+html:not([data-theme="google-material"]) .hover\:bg-\[\#F6EFE5\]:hover,
+html:not([data-theme="google-material"]) .hover\:bg-\[\#F2E9DB\]:hover,
+html:not([data-theme="google-material"]) .hover\:bg-\[\#F7F1E7\]\/70:hover {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Segmented controls strictly use Paper (#F6F4F1) + Black (#000000) */
+html:not([data-theme="google-material"]) .inline-flex.items-center.p-1.rounded-xl {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  padding: 0 !important;
+  gap: 8px;
+}
+
+html:not([data-theme="google-material"]) .inline-flex.items-center.p-1.rounded-xl > button {
+  border: 1.25px solid #000000;
+  border-radius: 12px !important;
+  padding: 7px 14px !important;
+  background-color: #F6F4F1;
+  color: #000000;
+}
+
+html:not([data-theme="google-material"]) .inline-flex.items-center.p-1.rounded-xl > button.bg-\[\#F97316\],
+html:not([data-theme="google-material"]) .inline-flex.items-center.p-1.rounded-xl > button.bg-\[\#191919\],
+html:not([data-theme="google-material"]) .inline-flex.items-center.p-1.rounded-xl > button.bg-\[\#FFFCF8\] {
+  background-color: #000000 !important;
+  color: #F6F4F1 !important;
+  border-color: #000000 !important;
+}
+
+/* ==========================================================================
+   GOOGLE MATERIAL — MATERIAL 3 EXPRESSIVE (OPTIONAL IN SETTINGS)
+   ========================================================================== */
+
+html[data-theme="google-material"],
+html[data-theme="google-material"] body {
+  background-color: var(--md-surface);
+  background-image: none;
+  color: var(--md-on-surface);
+}
+
+html[data-theme="google-material"] h1,
+html[data-theme="google-material"] h2,
+html[data-theme="google-material"] h3,
+html[data-theme="google-material"] h4 {
+  font-family: var(--font-display);
+  color: var(--md-on-surface);
+  letter-spacing: -0.025em;
+}
+
+html[data-theme="google-material"] .argon-card {
+  background: var(--md-surface-card);
+  color: var(--md-on-surface);
+  border: 1px solid color-mix(in srgb, var(--md-outline-variant) 42%, transparent);
+  border-radius: 28px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 6px 18px -12px color-mix(in srgb, var(--md-primary) 18%, transparent);
+  transition:
+    transform 340ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-radius 320ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 220ms ease,
+    box-shadow 260ms ease,
+    border-color 220ms ease;
+}
+
+html[data-theme="google-material"] .argon-card-interactive:hover {
+  background: var(--md-surface-card);
+  border-color: color-mix(in srgb, var(--md-primary) 42%, transparent);
+  border-radius: 22px;
+}
+
+html[data-theme="google-material"] .argon-card-stone {
+  background: var(--md-primary-container) !important;
+  color: var(--md-on-primary-container);
+  border: none;
+  border-radius: 28px;
+}
+
+html[data-theme="google-material"] .argon-card-coral {
+  background: var(--md-tertiary-container) !important;
+  color: var(--md-on-tertiary-container);
+  border: none;
+  border-radius: 28px;
+}
+
+html[data-theme="google-material"] .argon-card-black {
+  background: var(--md-on-surface) !important;
+  color: var(--md-surface-card);
+  border: none;
+  border-radius: 28px;
+}
+
+html[data-theme="google-material"] .argon-hero-card {
+  background: linear-gradient(
+    120deg,
+    var(--md-primary-container) 0%,
+    color-mix(in srgb, var(--md-primary-container) 74%, var(--md-surface-card) 26%) 62%,
+    color-mix(in srgb, var(--md-tertiary-container) 70%, var(--md-surface-card) 30%) 100%
+  );
+  color: var(--md-on-primary-container);
+  border: none;
+  border-radius: 36px;
+  box-shadow: 0 12px 32px -18px color-mix(in srgb, var(--md-primary) 30%, transparent);
+}
+
+html[data-theme="google-material"] .argon-glass-pill {
+  background: var(--md-surface-card);
+  color: var(--md-on-primary-container);
+  border: 1px solid color-mix(in srgb, var(--md-primary) 22%, transparent);
+  border-radius: 9999px;
+}
+
+html[data-theme="google-material"] .argon-clay-well {
+  background: var(--md-surface-container-low);
+  color: var(--md-on-surface);
+  border: 1px solid color-mix(in srgb, var(--md-outline-variant) 40%, transparent);
+  border-radius: 20px;
+}
+
+html[data-theme="google-material"] .argon-nav-active {
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  border: none;
+  border-radius: 9999px !important;
+  font-weight: 700;
+}
+
+html[data-theme="google-material"] .argon-btn-primary {
+  background: var(--md-primary);
+  color: var(--md-on-primary);
+  border-color: transparent;
+  border-radius: 9999px !important;
+  box-shadow: 0 6px 16px -6px color-mix(in srgb, var(--md-primary) 52%, transparent);
+}
+
+html[data-theme="google-material"] .argon-btn-primary:hover {
+  filter: brightness(0.95);
+}
+
+html[data-theme="google-material"] .argon-btn-primary:active {
+  border-radius: 14px !important;
+  transform: scale(0.95);
+}
+
+html[data-theme="google-material"] .argon-btn-dark {
+  background: var(--md-tertiary);
+  color: #FFFFFF;
+  border-color: transparent;
+  border-radius: 9999px !important;
+}
+
+html[data-theme="google-material"] .bg-\[\#FFFCF8\] {
+  background-color: var(--md-surface-card) !important;
+}
+
+html[data-theme="google-material"] .bg-\[\#F7F1E7\],
+html[data-theme="google-material"] .bg-\[\#F8F3EB\],
+html[data-theme="google-material"] .bg-\[\#F6EFE5\],
+html[data-theme="google-material"] .bg-\[\#F6F0E6\],
+html[data-theme="google-material"] .bg-\[\#F5F0E8\],
+html[data-theme="google-material"] .bg-\[\#F7F2EA\] {
+  background-color: var(--md-surface-container-low) !important;
+}
+
+html[data-theme="google-material"] .bg-\[\#F2EBE0\],
+html[data-theme="google-material"] .bg-\[\#EFE8DD\],
+html[data-theme="google-material"] .bg-\[\#F3ECE1\],
+html[data-theme="google-material"] .bg-\[\#F4EDE2\],
+html[data-theme="google-material"] .bg-\[\#EFE6DA\],
+html[data-theme="google-material"] .bg-\[\#E8DED2\] {
+  background-color: var(--md-surface-container) !important;
+}
+
+html[data-theme="google-material"] .bg-\[\#FDF4EA\],
+html[data-theme="google-material"] .bg-\[\#FDF0E2\],
+html[data-theme="google-material"] .bg-\[\#FDF1E4\],
+html[data-theme="google-material"] .bg-\[\#FBE9D7\],
+html[data-theme="google-material"] .bg-\[\#FDE8D3\] {
+  background-color: var(--md-primary-container) !important;
+  color: var(--md-on-primary-container) !important;
+}
+
+html[data-theme="google-material"] .bg-\[\#F5FBF9\],
+html[data-theme="google-material"] .bg-\[\#F4FBF9\],
+html[data-theme="google-material"] .bg-\[\#F6FBF9\],
+html[data-theme="google-material"] .bg-\[\#E3F5F2\] {
+  background-color: var(--md-secondary-container) !important;
+  color: var(--md-on-secondary-container) !important;
+}
+
+html[data-theme="google-material"] .bg-\[\#ECE3FC\],
+html[data-theme="google-material"] .bg-\[\#EFE6FD\] {
+  background-color: var(--md-tertiary-container) !important;
+  color: var(--md-on-tertiary-container) !important;
+}
+
+html[data-theme="google-material"] .border-\[\#E8DED2\],
+html[data-theme="google-material"] .border-\[\#EAE0D2\],
+html[data-theme="google-material"] .border-\[\#E6DACB\],
+html[data-theme="google-material"] .border-\[\#E4D8C9\],
+html[data-theme="google-material"] .border-\[\#EFE6DA\],
+html[data-theme="google-material"] .border-\[\#E7DDD0\],
+html[data-theme="google-material"] .border-\[\#F3D5B5\],
+html[data-theme="google-material"] .border-\[\#F3D8BC\],
+html[data-theme="google-material"] .border-\[\#F4C495\],
+html[data-theme="google-material"] .border-\[\#CBE9E4\],
+html[data-theme="google-material"] .border-\[\#C8EAE5\] {
+  border-color: color-mix(in srgb, var(--md-outline-variant) 55%, transparent) !important;
+}
+
+html[data-theme="google-material"] .text-\[\#F97316\],
+html[data-theme="google-material"] .text-\[\#EA6A12\],
+html[data-theme="google-material"] .text-\[\#EA580C\],
+html[data-theme="google-material"] .text-\[\#D95D0E\],
+html[data-theme="google-material"] .text-\[\#C25E12\] {
+  color: var(--md-primary) !important;
+}
+
+html[data-theme="google-material"] .text-\[\#77716B\],
+html[data-theme="google-material"] .text-\[\#5F5851\],
+html[data-theme="google-material"] .text-\[\#665F58\],
+html[data-theme="google-material"] .text-\[\#8C847C\] {
+  color: var(--md-on-surface-variant) !important;
+}
+
+html[data-theme="google-material"] .text-\[\#191919\] {
+  color: var(--md-on-surface) !important;
+}
+
+html[data-theme="google-material"] .bg-\[\#F97316\] {
+  background-color: var(--md-primary) !important;
+}
+
+html[data-theme="google-material"] .hover\:bg-\[\#F5EEE3\]:hover,
+html[data-theme="google-material"] .hover\:bg-\[\#F6EFE5\]:hover,
+html[data-theme="google-material"] .hover\:bg-\[\#F2E9DB\]:hover,
+html[data-theme="google-material"] .hover\:bg-\[\#F7F1E7\]\/70:hover {
+  background-color: var(--md-surface-container) !important;
+}
+
+html[data-theme="google-material"] .inline-flex.items-center.p-1.rounded-xl {
+  border-radius: 9999px !important;
+  background-color: var(--md-surface-container) !important;
+  border-color: transparent !important;
+}
+
+html[data-theme="google-material"] .inline-flex.items-center.p-1.rounded-xl > button {
+  border-radius: 9999px !important;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.48);
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .argon-card,
+  .argon-card-stone,
+  .argon-card-coral,
+  .argon-card-black,
+  .argon-hero-card {
+    border-radius: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .argon-card,
+  .argon-card-interactive:hover,
+  .argon-btn-primary,
+  .argon-btn-dark {
+    transition: none;
+    transform: none;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "ARGON | AVCOE Tech Community",
+  "description": "Interactive gamified student dashboard, 3D learning adventure map, hybrid training hub, and hackathon workspace for ARGON | AVCOE Tech Community.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
